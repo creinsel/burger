@@ -1,0 +1,70 @@
+<div class="container">
+<div class="jumbotron">
+  <h1 class="display-3 text-center">Eat Da Burger!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for
+                  calling extra attention to featured content or information.</p>
+  <hr class="my-2">
+  <p>It uses utility classes for typography and
+     spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#!" role="button">Some action</a>
+  </p>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+      <table class="table">
+  <thead>
+    <tr>
+      <th> Burgers Available To DEVOUR!</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {{#each burgers}}
+      {{#unless devoured}}
+
+      <span><strong> {{this.burger_name}}</strong></span>
+       <button type="button" class="eatburger btn btn-warning" id="eatMe" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-usd"></span><img src="https://img.icons8.com/android/24/000000/restaurant.png"></button>
+    </tr>
+    
+  </tbody>
+</table>
+    </div>
+    </div>
+<div class="com-md-1"></div>
+
+      <div class="col-md-5">
+       <table class="table">
+  <thead>
+    <tr>
+      <th> Burgers DEVOURED!</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {{#each burgers}}
+      {{#unless devoured}}
+
+      <span><strong> {{this.burger_name}}</strong></span>
+       <button type="button" class="eatburger btn btn-warning" id="eatMe" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-usd"></span><img src="https://img.icons8.com/android/24/000000/restaurant.png"></button>
+    </tr>
+    
+  </tbody>
+</table>
+    </div>
+</div>
+
+<div class="row">
+<div class="input-group">
+  <input type="text" class="form-control burgName" placeholder="" aria-label="" aria-describedby="basic-addon1">
+  <div class="input-group-append">
+    <button class="btn btn-primary newBurg" type="button">Add Burger</button>
+  </div>
+</div>
+
+</div>
+
+</div>
