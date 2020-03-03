@@ -4,7 +4,7 @@ function createQmarks(num){
     var arr=[];
 
     for (var i = 0; i < num; i++) {
-        arr.push("?")
+        arr.push("?");
         
     }
     return arr.toString();
@@ -16,7 +16,7 @@ function translateSql(obj){
     for(var key in obj){
 
         var value = obj[key];
-        if(Object.hasOwnProperty.call(ob,key)){
+        if(Object.hasOwnProperty.call(obj, key)){
             if(typeof value === "string" && value.indexOf(" ") >= 0){
                 value = "'" + value + "'";
             }
@@ -29,26 +29,24 @@ function translateSql(obj){
 
 var orm = {
     selectAll: function(table, cb){
-        var queryStr = "SELECT * FROM"+ table + ";";
+        var queryStr = "SELECT * FROM "+ table + ";";
 
-        connection.query(queryStr, function(err,result){
+        connection.query(queryStr, function(err, res){
             if (err){
-                console.log("ERROR!");
                 throw err;
             }
-            cb(result);
+            cb(res);
         });
     },
 
     insertOne: function(table, cols, vals, cb){
         var queryStr= "INSERT INTO" + table + " (" + cols.toString() + ") " + "VALUES (" + createQmarks(vals.length) + ")";
 
-        connection.query(queryStr,vals, function(err,result){
+        connection.query(queryStr, vals, function(err, res){
             if (err){
-                console.log("ERROR!");
                 throw err;
             }
-            cb(result);
+            cb(res);
         });
     },
 
@@ -56,12 +54,13 @@ var orm = {
         var queryStr = "UPDATE " + table + " SET " + translateSql(objColVals) + 
         " WHERE " + condition;
 
-        connection.query(queryStr,vals, function(err,result){
+        connection.query(queryStr, function(err,res){
             if (err){
-                console.log("ERROR!");
                 throw err;
             }
-            cb(result);
+            cb(res);
         });
     }
 }
+
+module.exports = orm;

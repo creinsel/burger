@@ -1,3 +1,8 @@
+
+$(document).ready(function (){
+
+
+
 $(".newBurg").on("click", ()=>{
     event.preventDefault();
 
@@ -19,6 +24,7 @@ $(".newBurg").on("click", ()=>{
 (".eatMe").on("click", ()=>{
 event.preventDefault();
 
+var id = $(this).data("id");
 var isDevoured = {
     devoured: 1
 }
@@ -30,5 +36,7 @@ $.ajax("/api/burgers/" + id, {
     console.log("Burger devoured");
     location.reload();
   });
+
+});
 
 });
