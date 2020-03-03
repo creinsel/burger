@@ -40,7 +40,7 @@ var orm = {
     },
 
     insertOne: function(table, cols, vals, cb){
-        var queryStr= "INSERT INTO" + table + " (" + cols.toString() + ") " + "VALUES (" + createQmarks(vals.length) + ")";
+        var queryStr= "INSERT INTO " + table + " (" + cols.toString() + ") " + "VALUES (" + createQmarks(vals.length) + ")";
 
         connection.query(queryStr, vals, function(err, res){
             if (err){

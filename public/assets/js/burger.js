@@ -3,7 +3,7 @@ $(document).ready(function (){
 
 
 
-$(".newBurg").on("click", ()=>{
+$(".newBurg").on("click", function(event){
     event.preventDefault();
 
     var newBurger = {
@@ -14,14 +14,14 @@ $(".newBurg").on("click", ()=>{
     $.ajax("/api/burgers", {
         type: "POST",
         data: newBurger
-    }).then( ()=>{
+    }).then( function(){
         console.log("New Burger added");
         location.reload();
     });
 });
 
 
-(".eatMe").on("click", ()=>{
+$(".eatMe").on("click", function(event){
 event.preventDefault();
 
 var id = $(this).data("id");
