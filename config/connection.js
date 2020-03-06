@@ -4,7 +4,6 @@ const { Client } = require('pg');
 
 
 var connection;
-console.log("database URL " + process.env.DATABASE_URL);
 if(process.env.DATABASE_URL){
     connection = new Client({
     connectionString:process.env.DATABASE_URL,
@@ -35,9 +34,15 @@ if(process.env.DATABASE_URL){
 
   connection.connect(function(err) {
     if (err) throw err;
-    console.log("Connected as "+ connection);
+    console.log("Connected as "+ connection.threadId);
   });
 
+  connection.query('SELECT table_schema, table_name FROM information_schema.tables;', (err, res) =>{
+    if(err) throw err;
+      console.log(JSON.stringify(res));
+    }
+    connection.end();
+  })
 
 
 
