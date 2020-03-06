@@ -1,17 +1,35 @@
 var mysql = require("mysql");
+const { Client } = require('pg');
+
+
 
 var connection;
-
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "burgers_db"
-  });
+if(process.env.DATABASE_URL){
+    connection = new Client({
+    connectionString:process.env.DATABASE_URL,
+    ssl: true,
+  })
 }
+  else {
+      connection = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "root",
+        database: "burgers_db"
+      });
+    }
+
+
+// if (process.env.JAWSDB_URL) {
+//   connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+//   connection = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "root",
+//     database: "burgers_db"
+//   });
+// }
 
   connection.connect(function(err) {
     if (err) throw err;
