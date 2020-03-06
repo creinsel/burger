@@ -4,6 +4,7 @@ const { Client } = require('pg');
 
 
 var connection;
+console.log("database URL " + process.env.DATABASE_URL);
 if(process.env.DATABASE_URL){
     connection = new Client({
     connectionString:process.env.DATABASE_URL,
