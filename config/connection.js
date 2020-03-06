@@ -37,12 +37,6 @@ if(process.env.DATABASE_URL){
     console.log("Connected as "+ connection.threadId);
   });
 
-  connection.query('SELECT table_schema, table_name FROM information_schema.tables;', (err, res) =>{
-    if(err) throw err;
-    console.log(JSON.stringify(res));
-    connection.end();
-  })
-
 
 
 // Export connection for our ORM to use.
