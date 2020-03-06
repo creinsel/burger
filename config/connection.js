@@ -35,7 +35,7 @@ if(process.env.DATABASE_URL){
 
   connection.connect(function(err) {
     if (err) throw err;
-    console.log("Connected as "+ connection.rows);
+    console.log("Connected as "+ connection);
   });
 
 
