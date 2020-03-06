@@ -39,8 +39,7 @@ if(process.env.DATABASE_URL){
 
   connection.query('SELECT table_schema, table_name FROM information_schema.tables;', (err, res) =>{
     if(err) throw err;
-      console.log(JSON.stringify(res));
-    }
+    console.log(JSON.stringify(res));
     connection.end();
   })
 
