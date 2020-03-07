@@ -9,6 +9,7 @@ if(process.env.DATABASE_URL){
     connectionString:process.env.DATABASE_URL,
     ssl: true,
   })
+  console.log(process.env.DATABASE_URL)
 }
   else {
       console.log("local connection")
@@ -34,8 +35,42 @@ if(process.env.DATABASE_URL){
 
   connection.connect(function(err) {
     if (err) throw err;
-    console.log("Connected as "+ connection.threadId);
+    console.log("Connected as "+ connection);
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
