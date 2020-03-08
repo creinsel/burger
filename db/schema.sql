@@ -4,8 +4,7 @@ USE burgers_db;
 
 CREATE TABLE burgers
 (
-	id int NOT NULL,
+	id  SERIAL PRIMARY KEY,
 	burger_name varchar(255) NOT NULL,
-	devoured BOOLEAN DEFAULT false,
-	PRIMARY KEY (id)
+	devoured BOOLEAN DEFAULT false
 );
