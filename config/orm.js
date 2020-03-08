@@ -44,6 +44,7 @@ var orm = {
 
         connection.query(queryStr, vals, function(err, res){
             if (err){
+                console.log('queryStr', queryStr);
                 throw err;
             }
             cb(res);
