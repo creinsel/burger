@@ -36,6 +36,7 @@ var orm = {
         var queryStr = "SELECT * FROM "+ table + ";";
 
         connection.query(queryStr, function(err, res){
+            console.log('queryStr', queryStr);
             if (err){
                 throw err;
             }
@@ -48,7 +49,6 @@ var orm = {
 
         connection.query(queryStr, vals, function(err, res){
             if (err){
-                console.log('queryStr', queryStr);
                 throw err;
             }
             cb(res);
