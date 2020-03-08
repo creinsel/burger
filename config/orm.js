@@ -4,7 +4,11 @@ function createQmarks(num){
     var arr=[];
 
     for (var i = 0; i < num; i++) {
-        arr.push("?");
+        if (process.env.NODE_ENV === 'production') {
+            arr.push("$" + (arr.length + 1));
+        } else {
+            arr.push("?");
+        }
         
     }
     return arr.toString();
@@ -35,7 +39,7 @@ var orm = {
             if (err){
                 throw err;
             }
-            cb(res);
+            cb(res.rows);
         });
     },
 
