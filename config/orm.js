@@ -60,6 +60,7 @@ var orm = {
         " WHERE " + condition;
 
         connection.query(queryStr, function(err,res){
+            console.log('queryStr', queryStr);
             if (err){
                 throw err;
             }
